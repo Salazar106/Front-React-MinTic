@@ -33,7 +33,7 @@ const Register = () => {
       };
       setLoading(true);
       await axios
-        .post("http://localhost:4000/register", Usuario)
+        .post("https://backnode.up.railway.app/user/registro", Usuario)
         .then((res) => {
           const { data } = res;
           setMensaje(data.mensaje);

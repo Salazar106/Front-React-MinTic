@@ -27,7 +27,7 @@ export default class tabla extends Component {
   }
 
   async getEnvios() {
-    const row = axios.get("http://localhost:4000/obtenerEnvios");
+    const row = axios.get("http://backNode.up.railway.app/env/allEnvs");
     this.setState({ envios: (await row).data });
   }
   //?/-----------------------------------------------------------------\\\\\\
@@ -56,7 +56,7 @@ export default class tabla extends Component {
       ciudadE: this.state.ciudadE,
     };
 
-    await axios.post("http://localhost:4000/envios", newEnvio);
+    await axios.post("https://backnode.up.railway.app/env/newEnv", newEnvio);
     this.getEnvios();
   };
   //*-----------------------------------------------------------------------\\\\
@@ -79,7 +79,7 @@ export default class tabla extends Component {
   };
 
   EditEnv = async (id) => {
-    const res = await axios.get("http://localhost:4000/obtenerEnvById/" + id);
+    const res = await axios.get("http://backNode.up.railway.app/env/envByid/" + id);
     let row = res.data;
 
     this.setState({
@@ -118,7 +118,7 @@ export default class tabla extends Component {
     };
 
     await axios.put(
-      "http://localhost:4000/updateEnvio/" + this.state._id,
+      "https://backnode.up.railway.app/env/update/" + this.state._id,
       editEnvio
     );
     this.getEnvios();
@@ -126,7 +126,7 @@ export default class tabla extends Component {
 
   //!------------------------------eliminar Envio-----------------------------\\\\
   deleteOrder = async (id) => {
-    await axios.delete("http://localhost:4000/deleteEnvio/" + id);
+    await axios.delete("https://backnode.up.railway.app/env/delete/" + id);
     this.getEnvios();
   };
   //!------------------------------------------------------------------------\\\
