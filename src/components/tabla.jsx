@@ -29,6 +29,7 @@ export default class tabla extends Component {
   async getEnvios() {
     const row = axios.get("http://backNode.up.railway.app/env/allEnvs");
     this.setState({ envios: (await row).data });
+   
   }
   //?/-----------------------------------------------------------------\\\\\\
 
@@ -42,6 +43,7 @@ export default class tabla extends Component {
 
   onSubmit = async (e) => {
     e.preventDefault();
+    e.clearImputs();
     const newEnvio = {
       fecha: this.state.fecha,
       largo: this.state.alto,
@@ -57,6 +59,7 @@ export default class tabla extends Component {
     };
 
     await axios.post("https://backnode.up.railway.app/env/newEnv", newEnvio);
+    
     this.getEnvios();
   };
   //*-----------------------------------------------------------------------\\\\
