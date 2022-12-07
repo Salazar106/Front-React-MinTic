@@ -27,7 +27,7 @@ export default class tabla extends Component {
   }
 
   async getEnvios() {
-    const row = axios.get("http://backNode.up.railway.app/env/allEnvs");
+    const row = axios.get("https://backNode.up.railway.app/env/allEnvs");
     this.setState({ envios: (await row).data });
    
   }
@@ -97,7 +97,7 @@ export default class tabla extends Component {
   };
 
   EditEnv = async (id) => {
-    const res = await axios.get("http://backNode.up.railway.app/env/envByid/" + id);
+    const res = await axios.get("https://backNode.up.railway.app/env/envByid/" + id);
     let row = res.data;
 
     this.setState({
