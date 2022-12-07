@@ -34,7 +34,23 @@ export default class tabla extends Component {
   //?/-----------------------------------------------------------------\\\\\\
 
   //*-----------------------------crear envio----------------------------\\\\
-
+  async deleteInputs(){
+    this.setState({
+      fecha: "",
+      largo: "",
+      ancho: "",
+      alto: "",
+      peso: "",
+      direccionR: "",
+      ciudadR: "",
+      nombredestinatario: "",
+      cedula: "",
+      direccionE: "",
+      ciudadE: "",
+      estado: "",
+      _id: "",
+    })
+  }
   onChangeEnvio = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -136,7 +152,7 @@ export default class tabla extends Component {
     return (
       <div className={styles.welcome}>
         <div className={styles.buttons3}>
-          <button  data-bs-toggle="modal" data-bs-target="#crearEnvio">
+          <button onClick={()=>this.deleteInputs()} data-bs-toggle="modal" data-bs-target="#crearEnvio">
             Crear orden
           </button>
         </div>
