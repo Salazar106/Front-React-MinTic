@@ -43,7 +43,6 @@ export default class tabla extends Component {
 
   onSubmit = async (e) => {
     e.preventDefault();
-    e.clearImputs();
     const newEnvio = {
       fecha: this.state.fecha,
       largo: this.state.alto,
