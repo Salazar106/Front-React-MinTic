@@ -33,7 +33,7 @@ const Register = () => {
       };
       setLoading(true);
       await axios
-        .post("https://backnode.up.railway.app/user/registro", Usuario)
+        .post("https://backnodes.up.railway.app/user/registro", Usuario)
         .then((res) => {
           const { data } = res;
           setMensaje(data.mensaje);

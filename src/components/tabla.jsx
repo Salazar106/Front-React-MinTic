@@ -27,7 +27,7 @@ export default class tabla extends Component {
   }
 
   async getEnvios() {
-    const row = axios.get("https://backNode.up.railway.app/env/allEnvs");
+    const row = axios.get("https://backnodes.up.railway.app/env/allEnvs");
     this.setState({ envios: (await row).data });
    
   }
@@ -73,7 +73,7 @@ export default class tabla extends Component {
       ciudadE: this.state.ciudadE,
     };
 
-    await axios.post("https://backnode.up.railway.app/env/newEnv", newEnvio);
+    await axios.post("https://backnodes.up.railway.app/env/newEnv", newEnvio);
     
     this.getEnvios();
   };
@@ -97,7 +97,7 @@ export default class tabla extends Component {
   };
 
   EditEnv = async (id) => {
-    const res = await axios.get("https://backNode.up.railway.app/env/envByid/" + id);
+    const res = await axios.get("https://backnodes.up.railway.app/env/envByid/" + id);
     let row = res.data;
 
     this.setState({
@@ -136,7 +136,7 @@ export default class tabla extends Component {
     };
 
     await axios.put(
-      "https://backnode.up.railway.app/env/update/" + this.state._id,
+      "https://backnodes.up.railway.app/env/update/" + this.state._id,
       editEnvio
     );
     this.getEnvios();
@@ -144,7 +144,7 @@ export default class tabla extends Component {
 
   //!------------------------------eliminar Envio-----------------------------\\\\
   deleteOrder = async (id) => {
-    await axios.delete("https://backnode.up.railway.app/env/delete/" + id);
+    await axios.delete("https://backnodes.up.railway.app/env/delete/" + id);
     this.getEnvios();
   };
   //!------------------------------------------------------------------------\\\
